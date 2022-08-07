@@ -9,6 +9,16 @@ Entering and exiting
 - exit with "deactivate"
 Note: venv uses python3, so python command by default runs python3
 
+# Setting up .env
+Go to Spotify Developer Portal
+- Register a new app
+- go to .env and replace the redirect uri, client secret, and client id with that application's respective data
+
+# Setting up Youtube functionality
+Go to Youtube Developer Portal
+- Register new app
+- Download Client secret and add json to project home directory
+
 # Running the Flask app (must enter venv first)
 Option 1:
 - set up environment variables. run in shell or add it to .bashrc, .zshrc, etc
