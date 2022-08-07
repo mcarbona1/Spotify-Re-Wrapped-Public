@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1>{% block title %}Your Playlist has been created successfully!{% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+  <div class="center">
+    <p>
+      To view your new youtube playlist, please got to youtube's website and look at your profile. It should appear under the playlists section! Feel free to close this webpage, view other parts of your Spotify profile, or use the button below to be brought to Youtube.
+    </p>
+    {% if login %}
+    <div class="text-center">
+      <a class="btn btn-success text-center" href="https://www.youtube.com" role="button">Go to Youtube</a>
+    </div>
+    {% endif %}
+  </div>
+
+{% endblock %}

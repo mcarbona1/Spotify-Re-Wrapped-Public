@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1>{% block title %}Welcome to Spotify Re-Wrapped!{% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+  <div class="center">
+    <p>
+      This project was developed for Notre Dame's CSE 20312: Data Structures class taught by Professor Matthew Morrison. The project was managed by Zhihan Zhang. The original purpose of this project was to provide users with the ability to see the data that spotify collects but does not make publically available to their users, similar to the Spotify Wrapped event that Spotify releases yearly but allows you view your current trends. Additionally, we set out to allow users to convert playlists from Spotify to Youtube as not everyone has Spotify and we wanted to allow users to be able to share their playlists with a greater number of people.
+    </p>
+
+    <p>
+      This project works by first authenticating a user with spotify and asking the user to allow the application to read their personal data. Then it makes requests from spotify and sorts through the data and represents it in a readable way. You can start by either clicking the login button or clicking one of the links in the header, which will redirect you to the login screen anyway.
+    </p>
+    {% if login %}
+    <div class="text-center">
+      <a class="btn btn-success text-center" href="/home/spotify/login" role="button">Login</a>
+    </div>
+    {% endif %}
+  </div>
+
+{% endblock %}

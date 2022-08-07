@@ -1,0 +1,20 @@
+<nav class="navbar navbar-expand-lg">
+  <div class="container-fluid">
+      <div class="title">
+          <img src="https://www.freepnglogos.com/uploads/spotify-logo-png/spotify-icon-marilyn-scott-0.png" alt="Spotify" width="70" fit="contain"></img>
+          <h1>Spotify Re-Wrapped</h1>
+      </div>
+      <div>
+          <ul>
+            <li><a href="/home/spotify">Home</a></li>
+            <li><a href="/home/spotify/top-artists">Artists</a></li>
+            <li><a href="/home/spotify/top-songs">Songs</a></li>
+            <li><a href="/home/spotify/song-recommendations">Recommendations</a></li>
+            <li><a href="/home/spotify/playlist">Playlist Converter</a></li>
+            {% if not login %}
+            <li><a href="/home/spotify/logout">Logout</a></li>
+            {% endif %}
+          </ul>
+      </div>
+  </div>
+</nav>

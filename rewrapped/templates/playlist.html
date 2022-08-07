@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1>{% block title %}{{ title }}{% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+<div class="center-header">
+<nav class="navbar">
+  <form action="/home/spotify/playlist" method="POST">
+    <div class="form-group">
+      <input type="search" name="query" id="playlistSearch" placeholder="Search for playlist"/>
+      <button type="submit" class="btn btn-success" value="submit"><i>Search</i></button>
+    </div>
+  </form>
+</nav>
+{% if search %}
+</div>
+  <div class="top-list">
+  <table class="table">
+    <thead>
+      <tr>
+      {% for heading in headers %}
+          <th scope="col"> {{heading}} </th>
+      {% endfor %}
+      </tr>
+    </thead>
+    <tbody>
+    {% for field in fields %}
+    <tr>
+      {% for header in headers %}
+      {% if header == "Name" %}
+      <td class="bold" scope="row">{{field[header]}}</td>
+      {% elif header == "Image" %}
+      <td><img src={{ field[header] }} alt={{ field["Name"] }}, width="100" height="100"></td>
+      {% elif header == "Owner" %}
+      <td> {{ field[header].display_name }}</td>
+      {% else %}
+      <td> {{ field[header] }}</td>
+      {% endif %}
+      {% endfor %}
+      <td>
+        <form action="/home/spotify/make-playlist" method="POST">
+        <div class="form-group">
+          <input type="hidden" name="playlistId" value='{{ field["playlist"]["id"] }}'/>
+          <input type="hidden" name="playlistOwner" value='{{ field["playlist"]["owner"] }}'/>
+          <button type="submit" class="btn btn-success" value="submit"><i>convert</i></button>
+        </div>
+        </form>
+      </td>
+    </tr>
+    {% endfor %}
+    </tbody>
+  </table>
+  </div>
+  {% endif %}
+{% endblock %}

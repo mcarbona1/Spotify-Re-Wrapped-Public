@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1>{% block title %}{{ title }}{% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+  <div class="top-list">
+  <table class="styled-table">
+    <thead>
+      <tr>
+      {% for heading in headers %}
+        {% if heading == "image" %}
+          <th scope="col"> {{ imageHead }} </th>
+        {% else %}
+          <th scope="col"> {{heading}} </th>
+        {% endif %}
+      {% endfor %}
+      </tr>
+    </thead>
+    <tbody>
+    {% for field in fields %}
+    <tr>
+      {% for header in headers %}
+      {% if header == "Rank" %}
+      <td class="bold" scope="row">{{field[header]}}</th>
+      {% elif header == "image" %}
+      <td><img src={{ field[header] }} alt={{ field["Name"] }}, width="100" height="100"></td>
+      {% else %}
+      <td> {{ field[header] }}</td>
+      {% endif %}
+      {% endfor %}
+    </tr>
+    {% endfor %}
+    </tbody>
+  </table>
+  </div>
+{% endblock %}
